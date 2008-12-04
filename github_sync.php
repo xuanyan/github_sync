@@ -2,9 +2,16 @@
 
 /* www.kukufun.com github_sync by xuanyan <xunayan1983@gmail.com> */
 
+// you must modify it below!
+$public_clone_url = 'git://github.com/xuanyan/xuanyan-s-code.git';
+
+$public_url = str_replace(array('git:', '.git'), array('http:', ''), $public_clone_url);
+
 error_reporting(E_ALL);
 set_time_limit(0);
 define('ROOT_PATH', dirname(__FILE__));
+define('PUBLIC_URL', $public_url);
+
 
 if (!isset($_POST['payload']))
 {
@@ -51,7 +58,7 @@ foreach ($array['commits'] as $key => $val)
         }
     }
 
-    $url = dirname(dirname($val['url'])) . "/raw/$val[id]/%s";
+    $url = PUBLIC_URL . "/raw/$val[id]/%s";
 
     foreach ($update_lists as $v)
     {
