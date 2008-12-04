@@ -1,0 +1,7 @@
+how to use this tool?
+
+change a name with github_sync.php 
+
+put it in the folder of your website where you want to sync
+
+add the url to your repos's Post-Receive URLs
