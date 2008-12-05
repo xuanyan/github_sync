@@ -7,7 +7,7 @@ class GithubSync
     private static $root_path = '';
     private static $url = '';
 
-    public static function Start($public_clone_url, $syncto = '.', $brach = 'master')
+    public static function Start($public_clone_url, $syncto = '.', $branch = 'master')
     {
         if (!$payload = self::GetPayload())
         {
@@ -15,7 +15,7 @@ class GithubSync
         }
 
         $public_url = str_replace(array('git:', '.git'), array('http:', ''), $public_clone_url);
-        self::$url = $public_url . "/raw/$brach/%s";
+        self::$url = $public_url . "/raw/$branch/%s";
         self::$root_path = $syncto;
 
         foreach ($payload['commits'] as $key => $val)
