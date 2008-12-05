@@ -46,17 +46,18 @@ foreach ($array['commits'] as $key => $val)
         $update_lists = array_merge($update_lists, $val['added']);
     }
 
-    if (!empty($val['removed']))
-    {
-        foreach ($val['removed'] as $v)
-        {
-            $filename = ROOT_PATH . '/' . $v;
-            if (file_exists($filename))
-            {
-                @unlink($filename);
-            }
-        }
-    }
+    // maybe has problems
+    // if (!empty($val['removed']))
+    // {
+    //     foreach ($val['removed'] as $v)
+    //     {
+    //         $filename = ROOT_PATH . '/' . $v;
+    //         if (file_exists($filename))
+    //         {
+    //             @unlink($filename);
+    //         }
+    //     }
+    // }
 
     $url = PUBLIC_URL . "/raw/$val[id]/%s";
 
