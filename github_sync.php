@@ -3,7 +3,7 @@
 /* www.kukufun.com github_sync by xuanyan <xunayan1983@gmail.com> */
 
 // you must modify it below!
-$public_clone_url = 'git://github.com/xuanyan/xuanyan-s-code.git';
+$public_clone_url = 'git://github.com/xuanyan/github_sync.git';
 
 $public_url = str_replace(array('git:', '.git'), array('http:', ''), $public_clone_url);
 
