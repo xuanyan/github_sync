@@ -4,4 +4,6 @@ change a name with github_sync.php
 
 put it in the folder of your website where you want to sync
 
+*edit it modify the $public_clone_url(important)
+
 add the url to your repos's Post-Receive URLs
