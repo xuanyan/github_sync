@@ -16,6 +16,7 @@ $array = @json_decode($_POST['payload'], true);
 
 file_put_contents('./github_in.text', var_export($array, true));
 
+
 GithubSync::Start('git://github.com/xuanyan/github_sync.git', dirname(__FILE__));
 
 exit;
