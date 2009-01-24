@@ -9,6 +9,8 @@ class GithubSync
 
     public static function Start($public_clone_url, $syncto = '.', $branch = 'master')
     {
+        set_time_limit(0);
+
         if (!$payload = self::GetPayload())
         {
             return false;
@@ -39,6 +41,7 @@ class GithubSync
         $data = @file_get_contents(sprintf(self::$url, urlencode($file)));
         $filename = self::$root_path . '/' . $file;
 
+        // if find : update it else: delete it!
         if (stripos($http_response_header[0], 'HTTP/1.1 200') !== false)
         {
             @mkdir(dirname($filename), 0777, true);
