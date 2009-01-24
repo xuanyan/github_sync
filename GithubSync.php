@@ -34,6 +34,8 @@ class GithubSync
         {
             self::UpdateFile($v);
         }
+
+        return count($uplists);
     }
 
     private static function UpdateFile($file)
