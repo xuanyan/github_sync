@@ -5,6 +5,7 @@
 
 error_reporting(E_ALL);
 set_time_limit(0);
+
 require_once './GithubSync.php';
 
 file_put_contents('./github_in.text', var_export($_POST, true));
