@@ -8,7 +8,13 @@ set_time_limit(0);
 
 require_once './GithubSync.php';
 
-file_put_contents('./github_in.text', var_export($_POST, true));
+if (get_magic_quotes_gpc())
+{
+    $_POST['payload'] = stripslashes($_POST['payload']);
+}
+$array = @json_decode($_POST['payload'], true);
+
+file_put_contents('./github_in.text', var_export($array, true));
 
 GithubSync::Start('git://github.com/xuanyan/github_sync.git', dirname(__FILE__));
 
