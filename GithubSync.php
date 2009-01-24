@@ -18,17 +18,19 @@ class GithubSync
         self::$url = $public_url . "/raw/$branch/%s";
         self::$root_path = $syncto;
 
+        $uplists = array();
         foreach ($payload['commits'] as $key => $val)
         {
             if (!$update_lists = self::GetUpdateLists($val))
             {
                 continue;
             }
+            $uplists += $update_lists;
+        }
 
-            foreach ($update_lists as $v)
-            {
-                self::UpdateFile($v);
-            }
+        foreach ($uplists as $v)
+        {
+            self::UpdateFile($v);
         }
     }
 
@@ -39,8 +41,7 @@ class GithubSync
 
         if (stripos($http_response_header[0], 'HTTP/1.1 200') !== false)
         {
-            $dir = dirname($filename);
-            @mkdir($dir, 0777, true);
+            @mkdir(dirname($filename), 0777, true);
             @file_put_contents($filename, $data);
         }
         else
