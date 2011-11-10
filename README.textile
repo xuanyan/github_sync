@@ -1,12 +1,21 @@
 <h2>how to use this tool?</h2>
 <pre>
-notice: it's a demo now!
-
-GithubSync::Start($public_clone_url, $dir_to_sync, $branch);
+warning: it is not safe now, just use it for test!
 
 example:
 
-GithubSync::Start('git://github.com/xuanyan/github_sync.git', dirname(__FILE__), 'master');
+$sync = new GitHubSync($config);
+$sync->start();
+
+$config is optional
+
+$config = array(
+    'branch' => null,
+    'syncfolder' => null,
+    'raw_url' => 'https://raw.github.com/:owner_name/:name/:branch/%s',
+    'log_file' => null
+);
+
 </pre>
 
 
