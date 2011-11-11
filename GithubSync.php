@@ -40,6 +40,8 @@ class GitHubSync
             return false;
         }
 
+        $this->log(var_export($payload, true));
+        
         $payload['ref'] = explode('/', $payload['ref']);
         $branch = end($payload['ref']);
         
