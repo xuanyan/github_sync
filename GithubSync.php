@@ -20,6 +20,7 @@ class GitHubSync
 
     function __construct($config = array())
     {
+        ignore_user_abort(true);
         set_time_limit(0);
 
         $this->config = array_merge($this->config, $config);
