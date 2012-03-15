@@ -8,4 +8,5 @@ require_once './GithubSync.php';
 
 GithubSync::Start('git://github.com/xuanyan/github_sync.git', dirname(__FILE__));
 
+// make some changes
 ?>
